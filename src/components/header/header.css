@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+a, a:visited, a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+#page-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 800;
+    background-color: dimgrey;
+    height: 56px;
+    color: #fff;
+}
+
+#page-logo{
+    font-size: 32px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20%;
+}
+
+#page-header-navigation {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+}
+
