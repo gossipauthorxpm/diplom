@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {color, motion} from "framer-motion";
+import {motion} from "framer-motion";
 
 type Props = {
     address: string,
