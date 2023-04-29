@@ -1,5 +1,9 @@
+from bin.Parser import Parser
+
+
 def main():
-    pass
+    parser = Parser("c")
+    print(parser.getTemperatureProcessor())
 
 
 if __name__ == '__main__':
