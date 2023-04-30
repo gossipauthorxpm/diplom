@@ -13,6 +13,7 @@ class Header extends React.Component {
                 <AnimatedLink address={"/about"} nameLink={"О проекте"}/>
                 <AnimatedLink address={"/price"} nameLink={"Цены и услуги"}/>
                 <AnimatedLink address={"/register"} nameLink={"Регистрация"}/>
+                <AnimatedLink address={"/auth"} nameLink={"Вход"}/>
             </nav>
         </header>
     }

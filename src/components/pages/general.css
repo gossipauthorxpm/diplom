@@ -12,3 +12,11 @@
 .page-not-found-link:visited, .page-not-found-link:active{
     color: black;
 }
+.page{
+    background-color: #c4c4c4;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -6,8 +6,10 @@ import About from "./about/About";
 import Price from "./price/Price";
 import Register from "./register/Register";
 import "./general.css"
+import Auth from "./auth/Auth";
 function PageSelector() {
     const location = useLocation();
+
     return <Routes location={location} key={location.pathname}>
         <Route path={"/"} element={
             <Main/>
@@ -19,7 +21,12 @@ function PageSelector() {
             <Price/>
         }/>
         <Route path={"/register"} element={
+            // @ts-ignore
             <Register/>
+        }/>
+        <Route path={"/auth"} element={
+            // @ts-ignore
+            <Auth/>
         }/>
         <Route path='*' element={
             <PageNotFound/>
