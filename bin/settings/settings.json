@@ -1,0 +1,5 @@
+{
+  "apiKey": "123456",
+  "timeout": 5,
+  "diskCheck": "c"
+}

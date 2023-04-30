@@ -1,10 +1,9 @@
-from bin.Parser import Parser
+from bin.InfoBuilder import InfoBuilder
 
 
 def main():
-    parser = Parser("c")
-    print(parser.getTemperatureProcessor())
-
+    builder = InfoBuilder()
+    print(...)
 
 if __name__ == '__main__':
     main()

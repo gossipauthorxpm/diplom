@@ -12,7 +12,7 @@ class Core:
         from OpenHardwareMonitor import Hardware
 
         self.__handle = Hardware.Computer()
-        self.__handle.MainboardEnabled = True
+        self.__handle.MainBoardEnabled = True
         self.__handle.CPUEnabled = True
         self.__handle.RAMEnabled = True
         self.__handle.GPUEnabled = True
@@ -30,11 +30,9 @@ class Parser:
         :param disk: Метка тома диска
         """
         if psutil.WINDOWS:
-            self.__handlerHardware = Core().getHandler()
+            self.__sensors = Core().getHandler()
         if psutil.MACOS or psutil.LINUX:
-            self.__processorSensors = psutil.sensors_temperatures()
-        else:
-            self.__processorSensors = None
+            self.__sensors = psutil.sensors_temperatures()
         self.__cpuStats = psutil.cpu_stats()
         self.__diskUsage = psutil.disk_usage(f"{disk.lower()}:")
 
@@ -53,10 +51,11 @@ class Parser:
         # получение процента занятого места в оперативной памяти
         return self.__virtualMemory.percent
 
-    def getTemperatureProcessor(self):
-        # возвращает текущую температуру процессора и прочую информацию только LINUX и MACOS
-        return self.__processorSensors
+    def getTemperatureSensors(self):
+        # Возвращает информацию с сенсоров. На разных системах возвращается разные типы данных.
+        return self.__sensors
 
     def getActiveNowUsers(self):
         # возвращает число пользователей пк в данный момент
         return self.__users
+
