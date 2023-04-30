@@ -1,5 +1,6 @@
 {
   "apiKey": "123456",
   "timeout": 5,
-  "diskCheck": "c"
+  "diskCheck": "c",
+  "apiPath": "http://localhost:8080/api/set-data-status/"
 }

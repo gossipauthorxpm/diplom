@@ -1,3 +1,6 @@
+import json
+
+
 class RequestBody:
     def __init__(self):
         self.__cpuTemp = None
@@ -6,6 +9,12 @@ class RequestBody:
         self.__diskPercentUsage = None
         self.__softInterruptsCount = None
         self.__activeUsersSystemCount = None
+
+    def getCpuTemp(self):
+        return self.__cpuTemp
+
+    def getGpuTemp(self):
+        return self.__gpuTemp
 
     def setCpuTemp(self, value):
         self.__cpuTemp = value
@@ -25,12 +34,12 @@ class RequestBody:
     def setActiveUsersSystemCount(self, value):
         self.__activeUsersSystemCount = value
 
-    def getRequestBodyDict(self):
-        return {
-            "cpu-temp": self.__cpuTemp,
-            "gpu-temp": self.__gpuTemp,
-            "virtual-memory-percent-usage": self.__virtualMemoryPercentUsage,
-            "disk-percent-usage": self.__diskPercentUsage,
-            "soft-interrupts-count": self.__softInterruptsCount,
-            "active-user-system": self.__activeUsersSystemCount
-        }
+    def getJSON(self):
+        return json.dumps({
+            "cpuTemp": self.__cpuTemp,
+            "gpuTemp": self.__gpuTemp,
+            "virtualMemoryPercentUsage": self.__virtualMemoryPercentUsage,
+            "diskPercentUsage": self.__diskPercentUsage,
+            "softInterruptsCount": self.__softInterruptsCount,
+            "activeUserSystem": self.__activeUsersSystemCount
+        })

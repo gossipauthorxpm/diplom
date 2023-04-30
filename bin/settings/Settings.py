@@ -14,6 +14,9 @@ class Settings:
     def getTimeout(self):
         return self.__settings['timeout']
 
+    def getApiUrl(self):
+        return self.__settings['apiPath']
+
     @staticmethod
     def parseSettings():
         with open("bin/settings/settings.json", encoding = "UTF-8") as file:
