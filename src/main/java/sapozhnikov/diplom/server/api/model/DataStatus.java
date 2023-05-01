@@ -5,24 +5,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @AllArgsConstructor
+@Table(name = "data_status")
 @NoArgsConstructor(force = true)
 @Data
 public class DataStatus {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private int softInterruptsCount;
     private int activeUserSystem;
     private double cpuTemp;
     private double gpuTemp;
+    private double cpuPercentUsage;
     private double virtualMemoryPercentUsage;
     private double diskPercentUsage;
 
@@ -34,6 +34,7 @@ public class DataStatus {
                 ", activeUserSystem=" + activeUserSystem +
                 ", cpuTemp=" + cpuTemp +
                 ", gpuTemp=" + gpuTemp +
+                ", cpuPercentUsage=" + cpuPercentUsage +
                 ", virtualMemoryPercentUsage=" + virtualMemoryPercentUsage +
                 ", diskPercentUsage=" + diskPercentUsage +
                 '}';

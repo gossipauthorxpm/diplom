@@ -6,14 +6,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import sapozhnikov.diplom.server.api.model.DataStatus;
+import sapozhnikov.diplom.server.api.service.DataStatusService;
 
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = OriginPath.PATH_REACT)
 public class ParseDataStatusController {
+    private final DataStatusService dataStatusService;
     @PostMapping("/api/set-data-status/")
     public String setDataStatus(@RequestBody DataStatus data) {
         System.out.println(data.toString());
+        this.dataStatusService.setDataStatus(data);
         return "111";
     }
 }
