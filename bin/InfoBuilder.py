@@ -8,7 +8,7 @@ class InfoBuilder:
     def __init__(self, settings):
         self.__settings = settings
         self.__parser = Parser(self.__settings.getDiskCheck())
-        self.__requestBody = RequestBody()
+        self.__requestBody = RequestBody(self.__settings.getApiKey())
         self.__setRequestBody()
 
     def __setRequestBody(self):
@@ -25,6 +25,8 @@ class InfoBuilder:
 
                 for sensor in item.Sensors:
                     # print(sensor.Name)
+                    if sensor.Name == "CPU Total":
+                        self.__requestBody.setCpuPercentUsage(sensor.Value)
                     if not isSelectGPU:
                         if sensor.Name == "GPU Core":
                             self.__requestBody.setGpuTemp(sensor.Value)

@@ -19,7 +19,7 @@ class Settings:
 
     @staticmethod
     def parseSettings():
-        with open("bin/settings/settings.json", encoding = "UTF-8") as file:
+        with open("bin/settings/settings.json", encoding="UTF-8") as file:
             stringData = ""
             for item in file.readlines():
                 stringData += item

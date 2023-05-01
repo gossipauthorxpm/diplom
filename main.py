@@ -8,9 +8,13 @@ from bin.settings.Settings import Settings
 def main():
     settings = Settings()
     while True:
-        time.sleep(settings.getTimeout())
-        builder = InfoBuilder(settings)
-        API.sendRequest(settings, builder.getRequestBody())
+        try:
+            time.sleep(settings.getTimeout())
+            builder = InfoBuilder(settings)
+            API.sendRequest(settings, builder.getRequestBody())
+        except Exception as error:
+            print(error.__str__())
+            continue
 
 
 if __name__ == '__main__':
