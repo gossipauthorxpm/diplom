@@ -23,6 +23,7 @@ public class User {
     private String email;
 
     @Column(name = "role", nullable = false)
+    @Enumerated(EnumType.STRING)
     private UserRole role;
     @Override
     public String toString() {

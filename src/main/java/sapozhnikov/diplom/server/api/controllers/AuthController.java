@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import sapozhnikov.diplom.server.api.model.AuthDto;
+import sapozhnikov.diplom.server.api.model.answers.AuthAnswer;
 import sapozhnikov.diplom.server.config.jwt_util.JwtUtil;
 
 import java.util.Map;
@@ -23,7 +24,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
 
     @PostMapping()
-    public Map<String, String> auth(@RequestBody AuthDto request) {
+    public AuthAnswer auth(@RequestBody AuthDto request) {
 
         UsernamePasswordAuthenticationToken authenticationToken
                 = new UsernamePasswordAuthenticationToken(request.getLogin(), request.getPassword());
@@ -35,7 +36,8 @@ public class AuthController {
         }
 
         String jwt = jwtUtil.generateToken(request.getLogin());
-        return Map.of("accessToken", jwt);
+
+        return new AuthAnswer(jwt, request.getLogin());
     }
 
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
