@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 import AnimatedLink from "./components/AnimatedLink";
 import Logo from "./components/Logo";
-import Requests from "../../api/Requests";
+import AuthRequests from "../../api/AuthRequests";
 
 type Props = {
     user: UserToken | null
@@ -18,7 +18,7 @@ function Header(props: Props) {
                 <AnimatedLink address={"/price"} nameLink={"Цены и услуги"}/>
                 <AnimatedLink address={"/info-stand"} nameLink={"Стенд просмотра"}/>
                 <AnimatedLink address={"/cabinet"} nameLink={"Кабинет"}/>
-                <AnimatedLink callback={Requests.logout} address={"/auth"}
+                <AnimatedLink callback={AuthRequests.logout} address={"/auth"}
                               nameLink={"Выйти"}/>
             </nav>
         </header>

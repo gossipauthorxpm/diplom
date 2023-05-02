@@ -1,10 +1,10 @@
 import User from "../entity/User";
-import {LoginInterface, RegisterInterface} from "./RequestInterface";
+import {LoginInterface} from "./RequestInterface";
 import ServerEndpoints from "./ServerEndpoints";
 import Callbacks from "./Callbacks";
 
 
-class Requests {
+export default class AuthRequests {
     static auth(user: User, callback: any, setUserCallback: any) {
         fetch(ServerEndpoints.AUTH_ENDPOINT, {
             method: "POST",
@@ -20,6 +20,7 @@ class Requests {
                 callback("Ошибка авторизации. Неверный логин или пароль.")
             }
             let answer: Promise<LoginInterface> = result.json();
+            console.log(result)
             answer.then(result => {
                 localStorage.setItem('user', JSON.stringify(result));
                 setUserCallback(result)
@@ -48,7 +49,4 @@ class Requests {
             callback(answer.message, false)
         }))
     }
-
 }
-
-export default Requests;

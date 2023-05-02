@@ -1,11 +1,9 @@
 import React, {useState} from "react";
 import "./index.css";
-import ServerEndpoints from "../../../api/ServerEndpoints";
 import User from "../../../entity/User";
-import {RegisterInterface} from "../../../api/RequestInterface";
 import {motion} from "framer-motion";
 import {NavigateFunction} from "react-router-dom";
-import Requests from "../../../api/Requests";
+import AuthRequests from "../../../api/AuthRequests";
 
 type Props = {
     navigate: NavigateFunction
@@ -60,7 +58,7 @@ function Register(props: Props) {
             return;
         }
         let user: User = new User(inputLogin.value, inputPassword.value, inputEmail.value);
-        Requests.register(user, showMessageRegister)
+        AuthRequests.register(user, showMessageRegister)
     }
 
     function showMessageRegister(message: string, isResultHide: boolean) {

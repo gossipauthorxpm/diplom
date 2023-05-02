@@ -1,0 +1,40 @@
+.info-stand-page {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page-stand-containers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.page-stand-containers-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 33%;
+}
+
+.info-stand-page-note {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-stand-container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    margin: 16px;
+    width: 100%;
+    border: 1px blue solid;
+}
+
+.page-stand-container-footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}

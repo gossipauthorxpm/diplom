@@ -22,7 +22,7 @@ function PageSelector(props: Props) {
 
     useEffect(() => {
         if (props.user !== null && !props.isUserSeeCabinet) {
-            navigate("/cabinet")
+            navigate("/info-stand")
             Callbacks.setIsUserSeeCabinetCallback(true)
         }
 

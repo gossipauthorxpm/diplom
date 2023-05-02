@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./index.css";
 import User from "../../../entity/User";
 import AuthError from "../../../api/errors/ApiErrors";
-import Requests from "../../../api/Requests";
+import AuthRequests from "../../../api/AuthRequests";
 import Callbacks from "../../../api/Callbacks";
 
 function Auth() {
@@ -45,7 +45,7 @@ function Auth() {
             }
 
             let user: User = new User(inputLogin.value, inputPassword.value);
-            Requests.auth(user, showMessageRegister, Callbacks.setUserCallback)
+            AuthRequests.auth(user, showMessageRegister, Callbacks.setUserCallback)
             Callbacks.setIsUserSeeCabinetCallback(false)
             Callbacks.setIsUserLoginCallback(true)
         } catch (error: any) {

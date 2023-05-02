@@ -7,7 +7,7 @@ export interface RegisterInterface extends RequestInterface {
 
 }
 
-export interface LoginInterface extends RequestInterface {
+export interface LoginInterface {
     accessToken: string
     login: string
 }
