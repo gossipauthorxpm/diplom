@@ -34,8 +34,6 @@ class InfoBuilder:
                     if not isSelectCPU:
                         if sensor.Name.find("CPU CCD") != -1:
                             self.__requestBody.setCpuTemp(sensor.Value)
-
-
         else:
             pass
 

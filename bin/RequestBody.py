@@ -2,8 +2,8 @@ import json
 
 
 class RequestBody:
-    def __init__(self, id):
-        self.__id = id
+    def __init__(self, idComputer):
+        self.__id = idComputer
         self.__cpuTemp = None
         self.__gpuTemp = None
         self.__cpuPercentUsage = None
