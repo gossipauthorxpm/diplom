@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./index.css";
 import ServerEndpoints from "../../../api/ServerEndpoints";
 import User from "../../../entity/User";
-import {RegisterInterface} from "../../../api/AnwersInterface";
+import {RegisterInterface} from "../../../api/RequestInterface";
 import {motion} from "framer-motion";
 
 function Register() {

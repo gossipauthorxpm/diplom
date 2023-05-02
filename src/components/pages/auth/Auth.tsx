@@ -1,11 +1,15 @@
 import React, {useState} from "react";
 import "./index.css";
 import User from "../../../entity/User";
-import ServerEndpoints from "../../../api/ServerEndpoints";
-import {LoginInterface} from "../../../api/AnwersInterface";
-import AuthError from "../../../api/ApiErrors";
+import AuthError from "../../../api/errors/ApiErrors";
+import Requests from "../../../api/Requests";
+import Callbacks from "../../../api/Callbacks";
 
-function Auth() {
+type Props = {
+    setUserCallback: any
+}
+
+function Auth(props: Props) {
 
     const [message, setMessage] = useState("");
     const [isResultHidden, setIsResultHidden] = useState(true);
@@ -33,49 +37,33 @@ function Auth() {
         </div>
     </div>
 
-    async function sendRequest() {
+    function sendRequest() {
         try {
-        let inputLogin: HTMLInputElement | null = document.querySelector('#input-login-auth');
-        let inputPassword: HTMLInputElement | null = document.querySelector("#input-password-auth");
-        if (inputLogin === null || inputPassword === null) {
-            throw new AuthError("Ошибка: Заполните поля ввода данных.")
-        }
-        if (inputLogin.value === "" || inputPassword.value === "") {
-            throw new AuthError("Ошибка: Заполните поля ввода данных.")
-        }
+            let inputLogin: HTMLInputElement | null = document.querySelector('#input-login-auth');
+            let inputPassword: HTMLInputElement | null = document.querySelector("#input-password-auth");
+            if (inputLogin === null || inputPassword === null) {
+                throw new AuthError("Ошибка: Заполните поля ввода данных.")
+            }
+            if (inputLogin.value === "" || inputPassword.value === "") {
+                throw new AuthError("Ошибка: Заполните поля ввода данных.")
+            }
 
-        let user: User = new User(inputLogin.value, inputPassword.value);
-
-            await fetch(ServerEndpoints.AUTH_ENDPOINT, {
-                method: "POST",
-                headers: {
-                    'Content-Type': "application/json;charset=UTF-8",
-                    'Connection': "keep-alive",
-                    'Accept': '*/*',
-                    'Accept-Encoding': "gzip, deflate, br"
-                },
-                body: JSON.stringify(user)
-            }).then(result => {
-                if (result.status === 403) {
-                    throw new AuthError("Ошибка авторизации. Неверный логин или пароль.")
-                }
-                let answer: Promise<LoginInterface> = result.json();
-                answer.then(result => {
-                    showMessageRegister("Успех авторизации!", false);
-                });
-            })
+            let user: User = new User(inputLogin.value, inputPassword.value);
+            Requests.auth(user, showMessageRegister, props.setUserCallback)
+            Callbacks.setIsUserSeeCabinetCallback(false)
+            Callbacks.setIsUserLoginCallback(true)
         } catch (error: any) {
             if (error instanceof AuthError) {
-                showMessageRegister(error.message, false)
+                showMessageRegister(error.message, false);
             } else {
-                showMessageRegister("Ошибка сервиса. Повторите попытку позже.", false)
+                showMessageRegister("Ошибка сервиса. Повторите попытку позже.", false);
             }
         }
-    }
 
-    function showMessageRegister(message: string, isResultHide: boolean) {
-        setMessage(message);
-        setIsResultHidden(isResultHide);
+        function showMessageRegister(message: string, isHidden: boolean) {
+            setMessage(message);
+            setIsResultHidden(isHidden);
+        }
     }
 }
 
