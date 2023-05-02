@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import {NavigateFunction, redirect, Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import PageNotFound from "./PageNotFound";
 import Main from "./main/Main";
-import About from "./about/About";
 import Price from "./price/Price";
 import Register from "./register/Register";
 import "./general.css"
@@ -34,9 +33,6 @@ function PageSelector(props: Props) {
             <Route path={"/"} element={
                 <Main/>
             }/>
-            <Route path={"/about"} element={
-                <About/>
-            }/>
             <Route path={"/price"} element={
                 <Price/>
             }/>
@@ -54,9 +50,6 @@ function PageSelector(props: Props) {
         return <Routes location={location} key={location.pathname}>
             <Route path={"/"} element={
                 <Main/>
-            }/>
-            <Route path={"/about"} element={
-                <About/>
             }/>
             <Route path={"/price"} element={
                 <Price/>

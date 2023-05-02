@@ -15,7 +15,6 @@ function Header(props: Props) {
             <Logo/>
             <nav id={'page-header-navigation'}>
                 <AnimatedLink address={"/"} nameLink={"Главная"}/>
-                <AnimatedLink address={"/about"} nameLink={"О проекте"}/>
                 <AnimatedLink address={"/price"} nameLink={"Цены и услуги"}/>
                 <AnimatedLink address={"/info-stand"} nameLink={"Стенд просмотра"}/>
                 <AnimatedLink address={"/cabinet"} nameLink={"Кабинет"}/>
@@ -28,7 +27,6 @@ function Header(props: Props) {
             <Logo/>
             <nav id={'page-header-navigation'}>
                 <AnimatedLink address={"/"} nameLink={"Главная"}/>
-                <AnimatedLink address={"/about"} nameLink={"О проекте"}/>
                 <AnimatedLink address={"/price"} nameLink={"Цены и услуги"}/>
                 <AnimatedLink address={"/register"} nameLink={"Регистрация"}/>
                 <AnimatedLink address={"/auth"} nameLink={"Вход"}/>

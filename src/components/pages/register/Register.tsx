@@ -5,6 +5,7 @@ import User from "../../../entity/User";
 import {RegisterInterface} from "../../../api/RequestInterface";
 import {motion} from "framer-motion";
 import {NavigateFunction} from "react-router-dom";
+import Requests from "../../../api/Requests";
 
 type Props = {
     navigate: NavigateFunction
@@ -55,24 +56,11 @@ function Register(props: Props) {
             return;
         }
         if (inputLogin.value === "" || inputPassword.value === "" || inputEmail.value === "") {
-            alert("Заполните все поля формы");
+            showMessageRegister("Заполните все поля формы", false);
             return;
         }
         let user: User = new User(inputLogin.value, inputPassword.value, inputEmail.value);
-
-        let response: Response = await fetch(ServerEndpoints.REGISTER_ENDPOINT, {
-            method: "POST",
-            headers: {
-                'Content-Type': "application/json;charset=UTF-8",
-                'Connection': "keep-alive",
-                'Accept': '*/*',
-                'Accept-Encoding': "gzip, deflate, br"
-            },
-            body: JSON.stringify(user)
-        });
-        let answer: RegisterInterface = await response.json();
-        showMessageRegister(answer.message, false)
-        props.navigate("/auth")
+        Requests.register(user, showMessageRegister)
     }
 
     function showMessageRegister(message: string, isResultHide: boolean) {

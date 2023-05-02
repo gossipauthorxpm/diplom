@@ -1,5 +1,5 @@
 import User from "../entity/User";
-import {LoginInterface} from "./RequestInterface";
+import {LoginInterface, RegisterInterface} from "./RequestInterface";
 import ServerEndpoints from "./ServerEndpoints";
 import Callbacks from "./Callbacks";
 
@@ -32,6 +32,21 @@ class Requests {
         localStorage.removeItem("user")
         Callbacks.setUserCallback(null)
         Callbacks.setIsUserLoginCallback(false)
+    }
+
+    static register(user: User, callback: any) {
+        fetch(ServerEndpoints.REGISTER_ENDPOINT, {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json;charset=UTF-8",
+                'Connection': "keep-alive",
+                'Accept': '*/*',
+                'Accept-Encoding': "gzip, deflate, br"
+            },
+            body: JSON.stringify(user)
+        }).then(res => res.json().then(answer => {
+            callback(answer.message, false)
+        }))
     }
 
 }
