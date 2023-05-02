@@ -9,6 +9,22 @@ public class AuthAnswer extends UserInputAnswer {
     private String accessToken;
     private String login;
 
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
     @Override
     public String toString() {
         return "AuthAnswer{" +

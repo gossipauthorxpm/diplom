@@ -21,7 +21,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
     private final JWTFilter filter;
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

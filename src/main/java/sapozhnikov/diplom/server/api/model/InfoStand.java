@@ -6,18 +6,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 @Entity
 @AllArgsConstructor
-@Table(name = "data_status")
+@Table(name = "info_stand")
 @NoArgsConstructor(force = true)
 @Data
-public class DataStatus {
+public class InfoStand {
 
     @Id
     private Long id;
 
+    private String loginUser;
     private int softInterruptsCount;
     private int activeUserSystem;
     private double cpuTemp;
