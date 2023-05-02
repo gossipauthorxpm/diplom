@@ -8,12 +8,11 @@ import Register from "./register/Register";
 import "./general.css"
 import Auth from "./auth/Auth";
 import Cabinet from "./cabinet/Cabinet";
-import user from "../../entity/User";
 import Callbacks from "../../api/Callbacks";
+import InfoStand from "./info-stand/InfoStand";
 
 type Props = {
     isUserLogin: boolean
-    setUserCallback: any
     user: UserToken | null
     isUserSeeCabinet: boolean
 }
@@ -44,6 +43,9 @@ function PageSelector(props: Props) {
             <Route path={"/cabinet"} element={
                 <Cabinet/>
             }/>
+            <Route path={"/info-stand"} element={
+                <InfoStand/>
+            }/>
             <Route path='*' element={
                 <PageNotFound/>
             }/>
@@ -60,10 +62,10 @@ function PageSelector(props: Props) {
                 <Price/>
             }/>
             <Route path={"/register"} element={
-                <Register/>
+                <Register navigate={navigate}/>
             }/>
             <Route path={"/auth"} element={
-                <Auth setUserCallback={props.setUserCallback}/>
+                <Auth/>
             }/>
             <Route path='*' element={
                 <PageNotFound/>

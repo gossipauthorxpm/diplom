@@ -1,10 +1,8 @@
 import User from "../entity/User";
 import {LoginInterface} from "./RequestInterface";
 import ServerEndpoints from "./ServerEndpoints";
-import AuthError from "./errors/ApiErrors";
-import LoginAnswer from "./answers/LoginAnswer";
 import Callbacks from "./Callbacks";
-import {redirect} from "react-router-dom";
+
 
 class Requests {
     static auth(user: User, callback: any, setUserCallback: any) {

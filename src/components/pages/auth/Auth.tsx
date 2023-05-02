@@ -5,11 +5,7 @@ import AuthError from "../../../api/errors/ApiErrors";
 import Requests from "../../../api/Requests";
 import Callbacks from "../../../api/Callbacks";
 
-type Props = {
-    setUserCallback: any
-}
-
-function Auth(props: Props) {
+function Auth() {
 
     const [message, setMessage] = useState("");
     const [isResultHidden, setIsResultHidden] = useState(true);
@@ -49,7 +45,7 @@ function Auth(props: Props) {
             }
 
             let user: User = new User(inputLogin.value, inputPassword.value);
-            Requests.auth(user, showMessageRegister, props.setUserCallback)
+            Requests.auth(user, showMessageRegister, Callbacks.setUserCallback)
             Callbacks.setIsUserSeeCabinetCallback(false)
             Callbacks.setIsUserLoginCallback(true)
         } catch (error: any) {

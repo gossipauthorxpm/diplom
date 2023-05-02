@@ -17,6 +17,7 @@ function Header(props: Props) {
                 <AnimatedLink address={"/"} nameLink={"Главная"}/>
                 <AnimatedLink address={"/about"} nameLink={"О проекте"}/>
                 <AnimatedLink address={"/price"} nameLink={"Цены и услуги"}/>
+                <AnimatedLink address={"/info-stand"} nameLink={"Стенд просмотра"}/>
                 <AnimatedLink address={"/cabinet"} nameLink={"Кабинет"}/>
                 <AnimatedLink callback={Requests.logout} address={"/auth"}
                               nameLink={"Выйти"}/>

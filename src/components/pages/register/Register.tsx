@@ -4,8 +4,13 @@ import ServerEndpoints from "../../../api/ServerEndpoints";
 import User from "../../../entity/User";
 import {RegisterInterface} from "../../../api/RequestInterface";
 import {motion} from "framer-motion";
+import {NavigateFunction} from "react-router-dom";
 
-function Register() {
+type Props = {
+    navigate: NavigateFunction
+}
+
+function Register(props: Props) {
 
     const [message, setMessage] = useState("");
     const [isResultHidden, setIsResultHidden] = useState(true)
@@ -67,6 +72,7 @@ function Register() {
         });
         let answer: RegisterInterface = await response.json();
         showMessageRegister(answer.message, false)
+        props.navigate("/auth")
     }
 
     function showMessageRegister(message: string, isResultHide: boolean) {

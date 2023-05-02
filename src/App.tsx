@@ -21,7 +21,7 @@ function App() {
     return <BrowserRouter>
         <div className={'app'}>
             <Header setUserCallback={setUser} user={user}/>
-            <PageSelector isUserSeeCabinet={isUserSeeCabinet} user={user} setUserCallback={setUser} isUserLogin={isUserLogin}/>
+            <PageSelector isUserSeeCabinet={isUserSeeCabinet} user={user} isUserLogin={isUserLogin}/>
         </div>
     </BrowserRouter>
 
