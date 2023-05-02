@@ -2,7 +2,7 @@ import json
 
 
 class RequestBody:
-    def __init__(self, idComputer):
+    def __init__(self, idComputer, loginUser):
         self.__id = idComputer
         self.__cpuTemp = None
         self.__gpuTemp = None
@@ -11,6 +11,7 @@ class RequestBody:
         self.__diskPercentUsage = None
         self.__softInterruptsCount = None
         self.__activeUsersSystemCount = None
+        self.__loginUser = loginUser
 
     def setCpuPercentUsage(self, value):
         self.__cpuPercentUsage = value
@@ -42,6 +43,7 @@ class RequestBody:
     def getJSON(self):
         return json.dumps({
             "id": self.__id,
+            "loginUser": self.__loginUser,
             "cpuTemp": self.__cpuTemp,
             "gpuTemp": self.__gpuTemp,
             "cpuPercentUsage": self.__cpuPercentUsage,

@@ -2,5 +2,6 @@
   "apiKey": "123456",
   "timeout": 1,
   "diskCheck": "c",
-  "apiPath": "http://localhost:8080/api/set-data-status/"
+  "apiPath": "http://localhost:8080/api/set-data-status/",
+  "loginUser": "admin"
 }

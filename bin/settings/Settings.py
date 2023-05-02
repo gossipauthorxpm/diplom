@@ -14,6 +14,9 @@ class Settings:
     def getTimeout(self):
         return self.__settings['timeout']
 
+    def getLoginUser(self):
+        return self.__settings['loginUser']
+
     def getApiUrl(self):
         return self.__settings['apiPath']
 
