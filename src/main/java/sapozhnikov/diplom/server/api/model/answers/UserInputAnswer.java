@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public abstract class UserInputAnswer {
-     String message;
-     boolean action;
+     protected String message;
+     protected boolean action;
 }
