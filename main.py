@@ -2,12 +2,12 @@ import time
 
 from bin.API import API
 from bin.InfoBuilder import InfoBuilder
-from bin.settings.Settings import Settings
+from bin.interface.InterfaceBuild import InterfaceBuild
 
 
-def main():
-    settings = Settings()
-    while True:
+def main(settings, isStart: [bool]):
+    while isStart[0]:
+        print(isStart)
         try:
             time.sleep(settings.getTimeout())
             builder = InfoBuilder(settings)
@@ -18,4 +18,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    interface = InterfaceBuild(main)
+    interface.run()
