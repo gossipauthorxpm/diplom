@@ -2,6 +2,8 @@ package sapozhnikov.diplom.server.config;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import lombok.AllArgsConstructor;
+
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @Component
 @AllArgsConstructor
 public class JWTFilter extends OncePerRequestFilter {
@@ -26,7 +29,7 @@ public class JWTFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
+                                    FilterChain filterChain) throws IOException, ServletException {
 
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && !authHeader.isBlank() && authHeader.startsWith("Bearer ")) {
@@ -48,11 +51,11 @@ public class JWTFilter extends OncePerRequestFilter {
                     }
                 } catch (JWTVerificationException e) {
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid JWT");
+                    return;
                 }
-
             }
         }
-
         filterChain.doFilter(request, response);
     }
+
 }
