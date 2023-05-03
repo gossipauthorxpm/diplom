@@ -19,11 +19,12 @@ type Props = {
 function PageSelector(props: Props) {
     const location = useLocation();
     const navigate: NavigateFunction = useNavigate();
+    Callbacks.navigateCallback = navigate;
 
     useEffect(() => {
         if (props.user !== null && !props.isUserSeeCabinet) {
             navigate("/info-stand")
-            Callbacks.setIsUserSeeCabinetCallback(true)
+            Callbacks.isUserSeeCabinetCallback(true)
         }
 
     }, [navigate, props.user, props.isUserSeeCabinet])

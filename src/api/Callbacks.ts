@@ -1,7 +1,11 @@
+import {NavigateFunction} from "react-router-dom";
+
 class Callbacks {
-    static setUserCallback: any
-    static setIsUserLoginCallback: any
-    static setIsUserSeeCabinetCallback: any
+    static navigateCallback: NavigateFunction
+    static userCallback: any
+    static isUserLoginCallback: any
+    static isUserSeeCabinetCallback: any
+    static setStandKey: any
 }
 
 export default Callbacks;

@@ -31,8 +31,8 @@ export default class AuthRequests {
 
     static logout() {
         localStorage.removeItem("user")
-        Callbacks.setUserCallback(null)
-        Callbacks.setIsUserLoginCallback(false)
+        Callbacks.userCallback(null)
+        Callbacks.isUserLoginCallback(false)
     }
 
     static register(user: User, callback: any) {

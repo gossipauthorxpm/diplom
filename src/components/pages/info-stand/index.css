@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 33%;
+    width: 450px;
 }
 
 .info-stand-page-note {
@@ -37,4 +37,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+}
+.page-stand-container-footer section {
+    width: 25%;
 }

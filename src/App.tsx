@@ -14,9 +14,9 @@ function App() {
     const [user, setUser] = useState(userObject)
     const [isUserLogin, setIsUserLogin] = useState(false)
     const [isUserSeeCabinet, setIsUserSeeCabinet] = useState(false)
-    Callbacks.setUserCallback = setUser
-    Callbacks.setIsUserLoginCallback = setIsUserLogin
-    Callbacks.setIsUserSeeCabinetCallback = setIsUserSeeCabinet
+    Callbacks.userCallback = setUser
+    Callbacks.isUserLoginCallback = setIsUserLogin
+    Callbacks.isUserSeeCabinetCallback = setIsUserSeeCabinet
 
     return <BrowserRouter>
         <div className={'app'}>

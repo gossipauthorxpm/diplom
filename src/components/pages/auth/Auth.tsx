@@ -45,9 +45,9 @@ function Auth() {
             }
 
             let user: User = new User(inputLogin.value, inputPassword.value);
-            AuthRequests.auth(user, showMessageRegister, Callbacks.setUserCallback)
-            Callbacks.setIsUserSeeCabinetCallback(false)
-            Callbacks.setIsUserLoginCallback(true)
+            AuthRequests.auth(user, showMessageRegister, Callbacks.userCallback)
+            Callbacks.isUserSeeCabinetCallback(false)
+            Callbacks.isUserLoginCallback(true)
         } catch (error: any) {
             if (error instanceof AuthError) {
                 showMessageRegister(error.message, false);
