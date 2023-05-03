@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(OriginPath.PATH_REACT)
+@CrossOrigin(CrossOriginPath.PATH_REACT)
 public class InfoStandController {
     private final InfoStandService infoStandService;
 

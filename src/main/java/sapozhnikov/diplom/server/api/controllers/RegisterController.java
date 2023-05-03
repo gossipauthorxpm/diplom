@@ -12,7 +12,7 @@ import sapozhnikov.diplom.server.api.model.answers.RegisterAnswer;
 import sapozhnikov.diplom.server.errros.RegisterException;
 
 
-@CrossOrigin(origins = OriginPath.PATH_REACT)
+@CrossOrigin(origins = CrossOriginPath.PATH_REACT)
 @Slf4j
 @AllArgsConstructor
 @RestController("/api/register/")

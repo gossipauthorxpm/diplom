@@ -12,9 +12,7 @@ import sapozhnikov.diplom.server.api.model.AuthDto;
 import sapozhnikov.diplom.server.api.model.answers.AuthAnswer;
 import sapozhnikov.diplom.server.config.jwt_util.JwtUtil;
 
-import java.util.Map;
-
-@CrossOrigin(origins = OriginPath.PATH_REACT)
+@CrossOrigin(origins = CrossOriginPath.PATH_REACT)
 @RestController
 @RequestMapping("/api/login/")
 @RequiredArgsConstructor
