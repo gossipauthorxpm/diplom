@@ -8,7 +8,7 @@ class InfoBuilder:
     def __init__(self, settings):
         self.__settings = settings
         self.__parser = Parser(self.__settings.getDiskCheck())
-        self.__requestBody = RequestBody(self.__settings.getApiKey(), self.__settings.getLoginUser())
+        self.__requestBody = RequestBody(self.__settings.getApiKey(), self.__settings.getLoginUser(), self.__settings.getNode())
         self.__setRequestBody()
 
     def __setRequestBody(self):

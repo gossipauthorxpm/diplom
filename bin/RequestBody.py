@@ -2,8 +2,8 @@ import json
 
 
 class RequestBody:
-    def __init__(self, idComputer, loginUser):
-        self.__id = idComputer
+    def __init__(self, keyStand, loginUser, node):
+        self.__keyStand = keyStand
         self.__cpuTemp = None
         self.__gpuTemp = None
         self.__cpuPercentUsage = None
@@ -12,6 +12,7 @@ class RequestBody:
         self.__softInterruptsCount = None
         self.__activeUsersSystemCount = None
         self.__loginUser = loginUser
+        self.__node = node
 
     def setCpuPercentUsage(self, value):
         self.__cpuPercentUsage = value
@@ -40,9 +41,13 @@ class RequestBody:
     def setActiveUsersSystemCount(self, value):
         self.__activeUsersSystemCount = value
 
+    def getKeyStand(self):
+        return self.__keyStand
+
     def getJSON(self):
         return json.dumps({
-            "id": self.__id,
+            "keyStand": self.__keyStand,
+            "node": self.__node,
             "loginUser": self.__loginUser,
             "cpuTemp": self.__cpuTemp,
             "gpuTemp": self.__gpuTemp,

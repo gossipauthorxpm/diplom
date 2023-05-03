@@ -20,6 +20,9 @@ class Settings:
     def getApiUrl(self):
         return self.__settings['apiPath']
 
+    def getNode(self):
+        return self.__settings['node']
+
     @staticmethod
     def parseSettings():
         with open("bin/settings/settings.json", encoding="UTF-8") as file:

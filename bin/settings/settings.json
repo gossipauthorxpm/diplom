@@ -1,7 +1,8 @@
 {
-  "apiKey": "123456",
+  "apiKey": "jfghn49239gm,dfsk3k052322143fdsfgrgrte",
   "timeout": 1,
   "diskCheck": "c",
-  "apiPath": "http://localhost:8080/api/set-data-status/",
-  "loginUser": "admin"
+  "apiPath": "http://localhost:8080/api/set-info-stand-data/",
+  "loginUser": "admin",
+  "node": "gossipauthorxpmPC"
 }
