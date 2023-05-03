@@ -30,7 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 //                разрешить энпоинты
                 .antMatchers("/api/register/", "/api/login/",
-                        "/api/set-data-status/",
+                        "/api/set-info-stand-data/",
+                        "/api/is-stand-into-base/*",
                         "/swagger-ui.html/",
                         "/swagger-ui.html/**",
                         "/swagger-ui/**",

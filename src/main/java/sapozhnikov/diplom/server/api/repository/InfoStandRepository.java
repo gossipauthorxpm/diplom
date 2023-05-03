@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface InfoStandRepository extends JpaRepository<InfoStand, Long> {
     List<InfoStand> getAllByLoginUser(String login);
+    InfoStand getByKeyStand(String key);
 }
