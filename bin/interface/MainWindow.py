@@ -1,4 +1,7 @@
-from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QHBoxLayout, QLabel
+import PyQt6
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QHBoxLayout, QLabel, \
+    QSystemTrayIcon
 
 from bin.settings.Settings import Settings
 import threading
@@ -24,6 +27,21 @@ class MainWindow(QMainWindow):
         self.__isStart[0] = True
         self.__thread = threading.Thread(target=self.__target, args=[self.__settings, self.__isStart])
         self.__thread.start()
+
+    def __openWindow(self):
+        self.show()
+        self.setWindowState(PyQt6.QtCore.Qt.WindowState.WindowActive)
+
+    def hideEvent(self, e):
+        self.hide()
+
+    def __setTrayIcon(self):
+        self.__trayIcon = QSystemTrayIcon()
+        self.__trayIcon.show()
+        self.__trayIcon.setToolTip("Обработчик железа")
+        self.__trayIcon.activated.connect(self.__openWindow)
+        self.__trayIcon.setIcon(QIcon("bin/interface/icons/logo.png"))
+        self.setWindowIcon(QIcon("bin/interface/icons/logo.png"))
 
     def stop(self):
         self.__isStart[0] = False
@@ -85,6 +103,7 @@ class MainWindow(QMainWindow):
         self.__setButtonsEvent()
         self.__setLayout()
         self.__setContainer()
+        self.__setTrayIcon()
 
     def __setSize(self):
         self.setGeometry(700, 200, 400, 200)
