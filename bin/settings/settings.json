@@ -1,1 +1,1 @@
-{"apiKey": "jfghn49239gm,dfsk3k052322143fdsfgrgrte", "timeout": 1, "diskCheck": "c", "apiPath": "http://localhost:8080/api/set-info-stand-data/", "loginUser": "admin", "node": "gossipauthorxpmPC"}
+{"apiKey": "jfghn49239gm,dfsk3k052322143fdsfgrgrte", "timeout": 1, "diskCheck": "c", "apiPath": "http://192.168.0.112:8080/api/set-info-stand-data/", "loginUser": "admin", "node": "gossipauthorxpmPC"}

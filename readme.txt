@@ -5,8 +5,11 @@
 - Система семейства Windows
 - Установленный python 3.11
 
+pip install pythonnet
+
 Запуск приложения:
 1. Распакуйте архив по удобному вам пути
 2. В корне откройте cmd 
 3. Выполните команду - python -m venv venv
-4. Запустите файл start.bat
+4. Выполните команду - python -m pip install pythonnet
+5. Запустите файл start.bat

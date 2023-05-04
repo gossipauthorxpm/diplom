@@ -26,7 +26,9 @@ class InfoBuilder:
                 for sensor in item.Sensors:
                     # print(sensor.Name)
                     if sensor.Name == "CPU Total":
-                        self.__requestBody.setCpuPercentUsage(round(sensor.Value, 2))
+                        # self.__requestBody.setCpuPercentUsage(round(sensor.Value, 2))
+                        self.__requestBody.setCpuPercentUsage(psutil.cpu_percent(interval=0))
+
                     if not isSelectGPU:
                         if sensor.Name == "GPU Core":
                             self.__requestBody.setGpuTemp(sensor.Value)
