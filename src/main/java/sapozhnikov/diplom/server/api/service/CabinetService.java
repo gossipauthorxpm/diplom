@@ -26,12 +26,25 @@ public class CabinetService {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    public ResponseEntity<String> changePasswordForLogin(String login, String password) {
+    public ResponseEntity<String> changePasswordForLogin(String login, String oldPassword, String newPassword) {
+        if (newPassword.equals("")){
+            return new ResponseEntity<>("Пароль не может быть пустым", HttpStatus.LENGTH_REQUIRED);
+        }
         User user = this.usersRepository.getUserByLogin(login);
         if (user == null) {
             return new ResponseEntity<>("Пользователь не найден", HttpStatus.NOT_FOUND);
         }
-        user.setPassword(this.bCryptPasswordEncoder.encode(password));
+
+        UsernamePasswordAuthenticationToken authenticationToken
+                = new UsernamePasswordAuthenticationToken(login, oldPassword);
+
+        try {
+            this.authenticationManager.authenticate(authenticationToken);
+        } catch (BadCredentialsException e) {
+            return new ResponseEntity<>("Доступ запрещен", HttpStatus.FORBIDDEN);
+        }
+
+        user.setPassword(this.bCryptPasswordEncoder.encode(newPassword));
         this.usersRepository.save(user);
         return new ResponseEntity<>("Пароль успешно заменен", HttpStatus.OK);
     }
@@ -59,6 +72,16 @@ public class CabinetService {
 
     public ResponseEntity<String> changeUser(User user) {
         User userOriginal = this.usersRepository.getById(user.getId());
+
+        UsernamePasswordAuthenticationToken authenticationToken
+                = new UsernamePasswordAuthenticationToken(user.getLogin(), user.getPassword());
+
+        try {
+            this.authenticationManager.authenticate(authenticationToken);
+        } catch (BadCredentialsException e) {
+            return new ResponseEntity<>("Доступ запрещен", HttpStatus.FORBIDDEN);
+        }
+
         userOriginal.setAge(user.getAge());
         userOriginal.setCity(user.getCity());
         userOriginal.setEmail(user.getEmail());

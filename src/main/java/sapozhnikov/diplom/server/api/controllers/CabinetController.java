@@ -1,7 +1,6 @@
 package sapozhnikov.diplom.server.api.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sapozhnikov.diplom.server.api.model.User;
@@ -19,11 +18,12 @@ public class CabinetController {
     }
 
     @PostMapping("/api/change-password-by-login/")
-    public ResponseEntity<String> changePasswordForLogin(@RequestBody String login, @RequestBody String password) {
-        return this.cabinetService.changePasswordForLogin(login, password);
+    public ResponseEntity<String> changePasswordForLogin(@RequestParam String login, @RequestParam String oldPassword, @RequestParam String newPassword) {
+        return this.cabinetService.changePasswordForLogin(login, oldPassword, newPassword);
     }
+
     @PutMapping("/api/change-user/")
-    public ResponseEntity<String> changeUser(@RequestBody User user){
+    public ResponseEntity<String> changeUser(@RequestBody User user) {
         return this.cabinetService.changeUser(user);
     }
 
