@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from "axios";
 import Callbacks from "./Callbacks";
 import AuthRequests from "./AuthRequests";
 import ServerEndpoints from "./ServerEndpoints";
-
+import FileDownload from "js-file-download"
 
 class InfoStandRequests {
 
@@ -73,12 +73,7 @@ class InfoStandRequests {
             },
             responseType: 'arraybuffer'
         })
-
-        let aLink = document.createElement("a");
-        aLink.href = URL.createObjectURL(new Blob([response.data]))
-        aLink.download = "stats-parser.zip";
-        aLink.click();
-        aLink.remove();
+        FileDownload(response.data, "stats-parser.zip")
     }
 }
 

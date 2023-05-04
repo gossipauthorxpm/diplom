@@ -1,0 +1,11 @@
+#main-page p {
+    font-size: 24px;
+    text-align: justify;
+    margin: 24px;
+}
+#main-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75%;
+}

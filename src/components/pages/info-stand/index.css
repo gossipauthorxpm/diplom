@@ -1,8 +1,8 @@
 .info-stand-page {
-    padding: 15px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .page-stand-containers {
@@ -17,7 +17,7 @@
 }
 .info-stand-page p {
     font-size: 20px;
-    margin: 6px;
+    margin: 6px ;
 }
 .info-stand-page ul {
     font-size: 20px;
