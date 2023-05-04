@@ -18,8 +18,8 @@ public class UserService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public RegisterAnswer registerUser(User user) throws RegisterException {
-        User userForLogin = this.accountsRepository.getAccountByLogin(user.getLogin());
-        User userForEmail = this.accountsRepository.getAccountByEmail(user.getEmail());
+        User userForLogin = this.accountsRepository.getUserByLogin(user.getLogin());
+        User userForEmail = this.accountsRepository.getUserByEmail(user.getEmail());
         user.setRole(UserRole.ROLE_USER);
         if (userForLogin != null) {
             throw new RegisterException(String.format("Аккаунт с данным логином \"%s\" уже зарегистрирован в системе", userForLogin.getLogin()));
@@ -27,7 +27,7 @@ public class UserService {
         if(userForEmail != null) {
             throw new RegisterException(String.format("Аккаунт с данным email \"%s\" уже зарегистрирован в системе", userForEmail.getEmail()));
         }
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
         this.accountsRepository.save(user);
         log.info("Аккаунт {} зарегистрирован", user);
         return new RegisterAnswer("Успешная регистрация", true);

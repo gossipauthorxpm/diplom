@@ -16,11 +16,15 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     private String login;
     private String password;
     private String email;
+    private int age;
+    private String country;
+    private String city;
+    private String workPlace;
 
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
