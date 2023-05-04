@@ -1,0 +1,74 @@
+#cabinet-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: center;*/
+}
+.cabinet-page-user-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+.cabinet-page-note{
+    font-size: 36px;
+    margin: 8px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.cabinet-page-note input{
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.cabinet-page-buttons{
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+
+}
+.cabinet-page-buttons button {
+    margin: 14px;
+    padding: 4px;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.cabinet-page-delete-update{
+    border-radius: 10px;
+    border: 1px black solid;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.cabinet-page-change-password{
+    display: flex;
+    padding: 18px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px black solid;
+    border-radius: 10px;
+    width: 100%;
+}
+.cabinet-page-change-password input{
+    margin: 10px;
+    font-size: 18px;
+}
+.cabinet-page-change-password button{
+    font-size: 24px;
+    padding: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.cabinet-page-change-password-note{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 33%;
+}

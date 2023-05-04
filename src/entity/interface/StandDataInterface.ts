@@ -1,4 +1,4 @@
-interface StandData {
+interface StandDataInterface {
     id: number
     activeUserSystem: number
     cpuPercentUsage: number

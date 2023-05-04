@@ -17,7 +17,7 @@ function InfoStand() {
     return <div className={'info-stand-page'}>
         <h1>Стенд просмотра активности железа</h1>
         <div className={"page-stand-containers"}>
-            {stands.map((value: StandData) => <div key={value.id} className={'page-stand-containers-info'}>
+            {stands.map((value: StandDataInterface) => <div key={value.id} className={'page-stand-containers-info'}>
                 <div className={'page-stand-container'}>
                     {/*NODE MACHINE*/}
                     <div className={'info-stand-page-note'}><span>Нода машины</span><span>{value.node}</span></div>
@@ -82,7 +82,7 @@ function InfoStand() {
                 <p>Выберите из списка монитор. Далее удалите монитор, путем нажатия на кнопку "Удалить"</p>
                 <div>
                     <select id="page-stand-select-delete-monitor">
-                        {stands.map((value: StandData) => <option key={value.id} value={value.id}>
+                        {stands.map((value: StandDataInterface) => <option key={value.id} value={value.id}>
                             {value.node}
                         </option>)}
                     </select>

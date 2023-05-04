@@ -6,6 +6,8 @@ class Callbacks {
     static isUserLoginCallback: any
     static isUserSeeCabinetCallback: any
     static setStandKey: any
+    static setResponse: any
+    static setResponsePassword: any
 }
 
 export default Callbacks;
