@@ -9,6 +9,19 @@
     display: flex;
     flex-wrap: wrap;
 }
+.page-stand-container span {
+    font-size: 20px;
+}
+.info-stand-page h2, h1 {
+    font-style: italic;
+}
+.info-stand-page p {
+    font-size: 20px;
+    margin: 6px;
+}
+.info-stand-page ul {
+    font-size: 20px;
+}
 
 .page-stand-containers-info {
     display: flex;
@@ -16,7 +29,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 450px;
+    width: 600px;
 }
 
 .info-stand-page-note {
@@ -30,7 +43,8 @@
     padding: 16px;
     margin: 16px;
     width: 100%;
-    border: 1px blue solid;
+    border: 1px #9c9ca6 solid;
+    background-color: rgba(174, 181, 219, 0.35);
 }
 
 .page-stand-container-footer {
@@ -38,6 +52,39 @@
     justify-content: space-around;
     width: 100%;
 }
+
 .page-stand-container-footer section {
-    width: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    margin: 12px;
+    padding: 32px;
+    text-align: justify;
+    border: 2px none black;
+    border-right-style: solid;
+    border-left-style: solid;
+}
+
+.page-stand-container-footer button {
+    width: 216px;
+    height: 36px;
+    font-size: 18px;
+    border-radius: 16px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.page-stand-container-footer select {
+    width: auto;
+    height: 36px;
+    font-size: 18px;
+    margin: 8px;
+}
+
+#page-stand-standKey {
+    font-size: 24px;
+    text-shadow: 1px 1px 10px red;
 }

@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import InfoStandRequests from "../../../api/InfoStandRequests";
 import UTFSymbols from "../../../entity/UTFSymbols";
 import Callbacks from "../../../api/Callbacks";
-
+import {color, motion} from "framer-motion";
 
 function InfoStand() {
     const [stands, setStands] = useState([])
@@ -66,15 +66,20 @@ function InfoStand() {
                     <p>Ноду для сервера указываете вы. Подойдет любое удобное вам название.</p>
                     <div>
                         <span id={"page-stand-standKey"}>
-                            <strong>{standKey === "" ? "" : `StandKey - ${standKey}`}</strong>
+                            StandKey <br/> <strong style={{textDecoration: "underline"}}>{standKey === "" ? "" : `${standKey}`}</strong>
                         </span>
                     </div>
-                    <button onClick={InfoStandRequests.addMonitor}>Добавить монитор</button>
+                    <p>
+                        После данного ключа в утилиту для считывания данных, данные отобразятся на экране.
+                    </p>
                 </div>
+                <motion.button
+                    whileHover={{backgroundColor: "#5abeb4", transition: {duration: 1}}}
+                    onClick={InfoStandRequests.addMonitor}>Добавить монитор</motion.button>
             </section>
             <section>
                 <h2>УДАЛИТЬ МОНИТОР</h2>
-                Выберите из списка монитор. Далее удалите монитор, путем нажатия на кнопку "Удалить"
+                <p>Выберите из списка монитор. Далее удалите монитор, путем нажатия на кнопку "Удалить"</p>
                 <div>
                     <select id="page-stand-select-delete-monitor">
                         {stands.map((value: StandData) => <option key={value.id} value={value.id}>
@@ -82,13 +87,25 @@ function InfoStand() {
                         </option>)}
                     </select>
                 </div>
-                <button onClick={InfoStandRequests.deleteMonitor}>Удалить</button>
+                <motion.button
+                    whileHover={{backgroundColor: "#5abeb4", transition: {duration: 1}}}
+                    onClick={InfoStandRequests.deleteMonitor}>Удалить</motion.button>
             </section>
             <section>
-                <h2>Утилита отправки данных на сервер</h2>
+                <h2>УТИЛИТА ОТПРАВКИ ДАННЫХ НА СЕРВЕР</h2>
                 <p>Данная утилита служит связующим звеном между сайтом и вашей машиной.</p>
-                <p>Скачайте данную утилиту с сайта и запустите</p>
-                <button>Скачать</button>
+                <p>Для работы данной утилиты вам нужны данные:</p>
+                <ul>
+                    <li>Ключ машины, который генерируется при нажатии на кнопку "Добавить монитор"</li>
+                    <li>Придумать ноду (виртуальное название) для вашей машины</li>
+                    <li>Выбрать диск для считывания информации (буква тома)</li>
+                    <li>Логин от вашей учетной записи</li>
+                </ul>
+                <p>Скачайте данную утилиту с сайта откройте файл readme - там вся остальная необходимая информация по запуску</p>
+                <motion.button
+                    whileHover={{backgroundColor: "#5abeb4", transition: {duration: 1}}}
+                    onClick={InfoStandRequests.downloadPythonScript}>Скачать
+                </motion.button>
             </section>
         </footer>
     </div>

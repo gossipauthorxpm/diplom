@@ -60,6 +60,26 @@ class InfoStandRequests {
         })
         console.log(response.data)
     }
+
+    static async downloadPythonScript() {
+        let userData = localStorage.getItem("user");
+        if (userData === null) {
+            return;
+        }
+        let userObject: UserToken = JSON.parse(userData);
+        let response = await axios.get(ServerEndpoints.DOWNLOAD_FILE_SCRIPT, {
+            headers: {
+                "Authorization": "Bearer " + userObject.accessToken
+            },
+            responseType: 'arraybuffer'
+        })
+
+        let aLink = document.createElement("a");
+        aLink.href = URL.createObjectURL(new Blob([response.data]))
+        aLink.download = "stats-parser.zip";
+        aLink.click();
+        aLink.remove();
+    }
 }
 
 export default InfoStandRequests;
