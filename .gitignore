@@ -19,6 +19,7 @@ target/
 *.iml
 *.ipr
 *.rar
+*.zip
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
