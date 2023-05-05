@@ -7,17 +7,26 @@
 #auth-form{
     border: 1px solid black;
     border-radius: 25px;
-    width: 100%;
+    width: 600px;
     padding: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+}
+#auth-form input{
+    font-size: 18px;
+}
+#auth-form h1{
+    margin: 12px;
+}
+#auth-form button{
+    margin: 12px;
 }
 .input-form{
     display: flex;
     justify-content: space-between;
-    width: 350px;
+    width: 80%;
 }
 .input-field{
     width: 250px;

@@ -4,10 +4,15 @@
     flex-direction: column;
     width: 100%;
 }
-
 .page-stand-containers {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+}
+.page-stand-containers table{
+    width: 33%;
+    margin: 16px;
+    /*border: 1px white solid;*/
 }
 .page-stand-container span {
     font-size: 20px;
@@ -27,24 +32,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 600px;
+    justify-content: space-around;
 }
 
 .info-stand-page-note {
     display: flex;
     justify-content: space-between;
-}
-
-.page-stand-container {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    margin: 16px;
-    width: 100%;
-    border: 1px #9c9ca6 solid;
-    background-color: rgba(174, 181, 219, 0.35);
 }
 
 .page-stand-container-footer {
@@ -72,16 +65,15 @@
     width: 216px;
     height: 36px;
     font-size: 18px;
-    border-radius: 16px;
     margin: 8px;
     cursor: pointer;
 }
 
 .page-stand-container-footer select {
     width: auto;
-    height: 36px;
-    font-size: 18px;
-    margin: 8px;
+    /*height: 36px;*/
+    font-size: 24px;
+    /*margin: 8px;*/
 }
 
 #page-stand-standKey {

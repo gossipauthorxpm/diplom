@@ -1,7 +1,6 @@
 import "./index.css"
 import {useEffect, useState} from "react";
 import CabinetRequests from "../../../api/CabinetRequests";
-import {motion} from "framer-motion";
 import Callbacks from "../../../api/Callbacks";
 
 
@@ -28,75 +27,79 @@ function Cabinet() {
     }, [])
 
     return <div id={'cabinet-page'}>
-        <h1>Кабинет</h1>
+        <h1 className={'prose text-4xl font-sans'}>Кабинет</h1>
         <div className={'cabinet-page-user-data'}>
-            <div className={'cabinet-page-note'}><span>ID</span><input id={'cabinet-input-id'} type={'text'}
+            <div className={'cabinet-page-note'}><span>ID</span><input className={'input input-bordered w-full max-w-xs'} id={'cabinet-input-id'} type={'text'}
                                                                        disabled={true}
                                                                        value={id}/></div>
-            <hr/>
-            <div className={'cabinet-page-note'}><span>Логин</span><input id={'cabinet-input-login'}
+
+            <div className={'cabinet-page-note'}><span>Логин</span><input className={'input input-bordered w-full max-w-xs'} id={'cabinet-input-login'}
                                                                           disabled={true}
                                                                           onChange={(e) => changeData(setLogin, e.target.value)}
                                                                           type={'text'} value={login}/></div>
-            <hr/>
-            <div className={'cabinet-page-note'}><span>Email</span><input id={'cabinet-input-email'}
+
+            <div className={'cabinet-page-note'}><span>Email</span><input className={'input input-bordered w-full max-w-xs'} id={'cabinet-input-email'}
                                                                           disabled={disableChange}
                                                                           onChange={(e) => changeData(setEmail, e.target.value)}
                                                                           type={'text'} value={email}/></div>
-            <hr/>
-            <div className={'cabinet-page-note'}><span>Возраст</span><input id={'cabinet-input-age'}
+
+            <div className={'cabinet-page-note'}><span>Возраст</span><input className={'input input-bordered w-full max-w-xs'} id={'cabinet-input-age'}
                                                                             disabled={disableChange}
                                                                             onChange={(e) => changeData(setAge, Number(e.target.value))}
                                                                             type={'text'} value={age}/></div>
-            <hr/>
-            <div className={'cabinet-page-note'}><span>Страна</span><input id={'cabinet-input-country'}
+
+            <div className={'cabinet-page-note'}><span>Страна</span><input className={'input input-bordered w-full max-w-xs'} id={'cabinet-input-country'}
                                                                            disabled={disableChange}
                                                                            onChange={(e) => changeData(setCountry, e.target.value)}
                                                                            type={'text'} value={country}/></div>
-            <hr/>
-            <div className={'cabinet-page-note'}><span>Город</span><input id={'cabinet-input-city'}
+
+            <div className={'cabinet-page-note'}><span>Город</span><input className={'input input-bordered w-full max-w-xs'} id={'cabinet-input-city'}
                                                                           disabled={disableChange}
                                                                           onChange={(e) => changeData(setCity, e.target.value)}
                                                                           type={'text'} value={city}/></div>
-            <hr/>
-            <div className={'cabinet-page-note'}><span>Место работы</span><input id={'cabinet-input-workPlace'}
+
+            <div className={'cabinet-page-note'}><span>Место работы</span><input className={'input input-bordered w-full max-w-xs'} id={'cabinet-input-workPlace'}
                                                                                  disabled={disableChange}
                                                                                  onChange={(e) => changeData(setWorkPlace, e.target.value)}
                                                                                  type={'text'} value={workPlace}/>
             </div>
-            <hr/>
+
             <div className={'cabinet-page-buttons'}>
-                <motion.button
-                    onClick={() => setDisableChange(!disableChange)}
-                    whileHover={{backgroundColor: "#5abeb4", transition: {duration: 1}}}>Изменить
-                </motion.button>
+                <button className={"btn btn-info btn-outline"}
+                        onClick={() => setDisableChange(!disableChange)}
+                >Изменить
+                </button>
                 <div className={'cabinet-page-delete-update'}>
                     <div>
-                        <motion.button
-                            onClick={CabinetRequests.updateUser}
-                            whileHover={{backgroundColor: "#5abeb4", transition: {duration: 1}}}>Подтвердить
+                        <button className={'btn btn-success btn-outline'}
+                                onClick={CabinetRequests.updateUser}
+                        >Подтвердить
                             изменения
-                        </motion.button>
-                        <motion.button
-                            onClick={CabinetRequests.deleteUser}
-                            whileHover={{backgroundColor: "#be5a5a", transition: {duration: 1}}}>Удалить аккаунт
-                        </motion.button>
-                        <label><input onChange={(e) => changeData(setPassword, e.target.value)}
-                                      id={"cabinet-input-password"} type="password" value={password}/> Пароль</label>
-                        <br/>
+                        </button>
+                        <button className={'btn btn-error btn-outline'}
+                                onClick={CabinetRequests.deleteUser}
+                        >Удалить аккаунт
+                        </button>
                     </div>
+                    <div>Пароль <input className={'input input-bordered w-full max-w-xs'}
+                        onChange={(e) => changeData(setPassword, e.target.value)}
+                                       id={"cabinet-input-password"} type="password"
+                                       value={password}/> </div>
                     <span>{response}</span>
                 </div>
             </div>
             <div className={'cabinet-page-change-password'}>
                 <h3>Изменение пароля</h3>
                 <div className={'cabinet-page-change-password-note'}>Старый пароль <input
+                    className={'input input-bordered w-full max-w-xs'}
                     id={'cabinet-input-oldPassword'} type="password"/></div>
                 <div className={'cabinet-page-change-password-note'}>Новый пароль <input
+                    className={'input input-bordered w-full max-w-xs'}
                     id={'cabinet-input-newPassword'} type="password"/></div>
-                <motion.button
-                    onClick={CabinetRequests.updatePassword}
-                    whileHover={{backgroundColor: "#7dbe5a", transition: {duration: 1}}}>Изменить</motion.button>
+                <button className={'btn btn-success btn-outline'}
+                        onClick={CabinetRequests.updatePassword}
+                >Изменить
+                </button>
                 <span>{responsePassword}</span>
             </div>
         </div>

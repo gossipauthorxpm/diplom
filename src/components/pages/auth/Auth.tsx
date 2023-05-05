@@ -13,21 +13,22 @@ function Auth() {
     return <div className={'page'}>
         <div id={'auth-page'}>
             <div id={'auth-form'}>
-                <h1 className={'element-padding'}>Авторизация</h1>
+                <h1 className={'prose text-4xl font-sans'}>Авторизация</h1>
                 <div className={'input-form element-padding'}>
-                    <span className={'element-padding'}>ЛОГИН</span>
-                    <input id={'input-login-auth'} className={'input-field element-padding'} type="text"/>
+                    <span className={'prose text-xl font-sans element-padding'}>ЛОГИН</span>
+                    <input id={'input-login-auth'} className="input input-bordered input-secondary w-full max-w-xs" type="text"/>
                 </div>
                 <div className={'input-form element-padding'}>
-                    <span className={'element-padding'}>ПАРОЛЬ</span>
-                    <input id={'input-password-auth'} className={'input-field element-padding'}
+                    <span className={'prose text-xl font-sans element-padding'}>ПАРОЛЬ</span>
+                    <input id={'input-password-auth'} className="input input-bordered input-secondary w-full max-w-xs"
                            type="password"/>
                 </div>
                 <div className={'element-padding'} hidden={isResultHidden}>
                     {message}
                 </div>
-                <button onClick={sendRequest}
-                        className={'auth-button element-padding'}>Вход
+                <button
+                    className="btn btn-outline btn-secondary" onClick={sendRequest}
+                >Вход
                 </button>
             </div>
         </div>

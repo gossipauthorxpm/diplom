@@ -17,29 +17,28 @@ function Register(props: Props) {
     return <div className={'page'}>
         <div id={'register-page'}>
             <div id={'register-form'}>
-                <h1 className={'element-padding'}>Регистрация</h1>
+                <h1 className={'prose text-4xl font-sans'}>Регистрация</h1>
                 <div className={'input-form element-padding'}>
-                    <span className={'element-padding'}>ЛОГИН</span>
-                    <input id={'input-login-register'} className={'input-field element-padding'} type="text"/>
+                    <span className={'prose text-xl font-sans element-padding'}>ЛОГИН</span>
+                    <input id={'input-login-register'} className={'input input-bordered input-secondary w-full max-w-xs'} type="text"/>
                 </div>
                 <div className={'input-form element-padding'}>
-                    <span className={'element-padding'}>ПАРОЛЬ</span>
-                    <input id={'input-password-register'} className={'input-field element-padding'}
+                    <span className={'prose text-xl font-sans element-padding'}>ПАРОЛЬ</span>
+                    <input id={'input-password-register'} className={'input input-bordered input-secondary w-full max-w-xs'}
                            type="password"/>
                 </div>
                 <div className={'input-form element-padding'}>
-                    <span className={'element-padding'}>ЭЛЕКТРОННАЯ ПОЧТА</span>
-                    <input id={'input-email-register'} className={'input-field element-padding'}
+                    <span className={'prose text-xl font-sans element-padding'}>ЭЛЕКТРОННАЯ ПОЧТА</span>
+                    <input id={'input-email-register'} className={'input input-bordered input-secondary w-full max-w-xs'}
                            type="text"/>
                 </div>
                 <div className={'element-padding'} hidden={isResultHidden}>
                     {message}
                 </div>
-                <motion.button
-                    whileHover={{backgroundColor: "#bcccf3"}}
+                <button
                     onClick={sendRequest}
-                    className={'register-button element-padding'}>Зарегистрироваться
-                </motion.button>
+                    className="btn btn-outline btn-secondary">Зарегистрироваться
+                </button>
             </div>
         </div>
     </div>
