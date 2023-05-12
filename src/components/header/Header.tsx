@@ -11,9 +11,9 @@ type Props = {
 }
 
 function Header(props: Props) {
-    const [useDarkTheme, setUseDarkTheme] = useState(false)
+    const [useDarkTheme, setUseDarkTheme] = useState(true)
     if (props.user !== null) {
-            return <header className={'navbar bg-base-200'} id={'page-header'}>
+        return <header className={'navbar bg-base-200'} id={'page-header'}>
             <div className="form-control">
                 <label className="label cursor-pointer">
                     <span style={{margin: 16}} className="label-text">Сменить тему</span>
@@ -30,14 +30,9 @@ function Header(props: Props) {
                     AuthRequests.logout()
                     Callbacks.navigate("/auth")
                 }} className="btn btn-outline btn-error rounded-full">
-                    {/*<AnimatedLink callback={AuthRequests.logout} address={"/auth"}*/}
-                    {/*              nameLink={"Выйти"}/>*/}
                     Выйти
                 </button>
-
-
             </nav>
-
         </header>
     } else {
         return <header className={'navbar bg-base-200'} id={'page-header'}>
@@ -55,7 +50,6 @@ function Header(props: Props) {
                 <button onClick={() => Callbacks.navigate('/auth')} className="btn btn-outline btn-primary">Вход
                 </button>
             </nav>
-
         </header>
     }
 

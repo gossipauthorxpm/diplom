@@ -8,8 +8,6 @@ import Auth from "./auth/Auth";
 import Cabinet from "./cabinet/Cabinet";
 import Callbacks from "../../api/Callbacks";
 import InfoStand from "./info-stand/InfoStand";
-import DocPage from "./other/DocPage";
-import LicensePage from "./other/LicensePage";
 
 type Props = {
     isUserLogin: boolean
@@ -44,12 +42,7 @@ function PageSelector(props: Props) {
             <Route path='*' element={
                 <PageNotFound/>
             }/>
-            <Route path='/doc' element={
-                <DocPage/>
-            }/>
-            <Route path='/license' element={
-                <LicensePage/>
-            }/>
+
         </Routes>
     } else {
         return <Routes location={location} key={location.pathname}>
@@ -66,12 +59,7 @@ function PageSelector(props: Props) {
             <Route path='*' element={
                 <PageNotFound/>
             }/>
-            <Route path='/doc' element={
-                <DocPage/>
-            }/>
-            <Route path='/license' element={
-                <LicensePage/>
-            }/>
+
         </Routes>
     }
 
