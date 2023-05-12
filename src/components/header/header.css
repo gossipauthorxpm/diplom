@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 
 a, a:visited, a:active {
-    color: #fff;
+    /*color: #000;*/
     text-decoration: none;
 }
 
@@ -11,13 +11,12 @@ a, a:visited, a:active {
     justify-content: space-around;
     align-items: center;
     font-size: 18px;
-    font-weight: 800;
-    height: 58px;
-    color: #fff;
+    /*font-weight: 800;*/
+    height: 75px;
+    /*color: #000;*/
 }
 
 #page-logo{
-    font-size: 32px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     display: flex;
@@ -28,7 +27,7 @@ a, a:visited, a:active {
 
 #page-header-navigation {
     display: flex;
-    width: 50%;
+    width: 25%;
     justify-content: space-around;
 }
 

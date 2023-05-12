@@ -12,7 +12,7 @@ class AnimatedLink extends React.Component<Props> {
 
     render() {
         return <motion.div
-            whileHover={{scale: 1.25, textShadow: "1px 1px 10px blue"}}
+            whileHover={{scale: 1.25}}
             transition={{duration: 0.75, type: "spring"}}
         >
             <Link className={'prose text-xl font-sans'} onClick={this.props.callback} to={this.props.address}>

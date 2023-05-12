@@ -8,6 +8,8 @@ import Auth from "./auth/Auth";
 import Cabinet from "./cabinet/Cabinet";
 import Callbacks from "../../api/Callbacks";
 import InfoStand from "./info-stand/InfoStand";
+import DocPage from "./other/DocPage";
+import LicensePage from "./other/LicensePage";
 
 type Props = {
     isUserLogin: boolean
@@ -18,7 +20,7 @@ type Props = {
 function PageSelector(props: Props) {
     const location = useLocation();
     const navigate: NavigateFunction = useNavigate();
-    Callbacks.navigateCallback = navigate;
+    Callbacks.navigate = navigate;
 
     useEffect(() => {
         if (props.user !== null && !props.isUserSeeCabinet) {
@@ -33,7 +35,6 @@ function PageSelector(props: Props) {
             <Route path={"/"} element={
                 <Main/>
             }/>
-
             <Route path={"/cabinet"} element={
                 <Cabinet/>
             }/>
@@ -42,6 +43,12 @@ function PageSelector(props: Props) {
             }/>
             <Route path='*' element={
                 <PageNotFound/>
+            }/>
+            <Route path='/doc' element={
+                <DocPage/>
+            }/>
+            <Route path='/license' element={
+                <LicensePage/>
             }/>
         </Routes>
     } else {
@@ -58,6 +65,12 @@ function PageSelector(props: Props) {
             }/>
             <Route path='*' element={
                 <PageNotFound/>
+            }/>
+            <Route path='/doc' element={
+                <DocPage/>
+            }/>
+            <Route path='/license' element={
+                <LicensePage/>
             }/>
         </Routes>
     }

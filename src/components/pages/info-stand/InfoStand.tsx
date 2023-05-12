@@ -20,9 +20,14 @@ function InfoStand() {
             {stands.map((value: StandDataInterface) => <div key={value.id} className={'page-stand-containers-info'}>
                 <div className={'overflow-x-auto'}>
                     <table className={'table table-compact w-full'}>
+                        <tbody>
                         <tr>
                             <th>Нода машины</th>
                             <th>{value.node}</th>
+                        </tr>
+                        <tr>
+                            <th>ОС</th>
+                            <th>{value.systemOC}</th>
                         </tr>
                         <tr className="active">
                             <th>Число незапланированных прерываний софта</th>
@@ -52,6 +57,7 @@ function InfoStand() {
                             <th>Загруженность диска</th>
                             <th>{value.diskPercentUsage} {UTFSymbols.PERCENT}</th>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>)}
@@ -120,7 +126,11 @@ function InfoStand() {
                     запуску</p>
                 <button
                     className={'btn btn-outline btn-secondary'}
-                    onClick={InfoStandRequests.downloadPythonScript}>Скачать
+                    onClick={InfoStandRequests.downloadPythonScriptWindows}>Скачать (Windows)
+                </button>
+                <button
+                    className={'btn btn-outline btn-secondary'}
+                    onClick={InfoStandRequests.downloadPythonScriptLinux}>Скачать (Linux)
                 </button>
             </section>
         </footer>

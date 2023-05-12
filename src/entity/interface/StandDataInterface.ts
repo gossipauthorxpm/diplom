@@ -8,4 +8,5 @@ interface StandDataInterface {
     node: number
     softInterruptsCount: number
     virtualMemoryPercentUsage: number
+    systemOC: string
 }

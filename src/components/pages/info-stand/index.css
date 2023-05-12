@@ -17,9 +17,9 @@
 .page-stand-container span {
     font-size: 20px;
 }
-.info-stand-page h2, h1 {
-    font-style: italic;
-}
+/*.info-stand-page h2, h1 {*/
+/*    font-style: italic;*/
+/*}*/
 .info-stand-page p {
     font-size: 20px;
     margin: 6px ;
@@ -72,7 +72,7 @@
 .page-stand-container-footer select {
     width: auto;
     /*height: 36px;*/
-    font-size: 24px;
+    font-size: 18px;
     /*margin: 8px;*/
 }
 

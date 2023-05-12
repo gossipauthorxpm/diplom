@@ -24,7 +24,7 @@ class InfoStandRequests {
         } catch (error: any) {
             if (error.response.status === 403) {
                 AuthRequests.logout()
-                Callbacks.navigateCallback("/auth")
+                Callbacks.navigate("/auth")
             }
         }
     }
@@ -61,19 +61,33 @@ class InfoStandRequests {
         console.log(response.data)
     }
 
-    static async downloadPythonScript() {
+    static async downloadPythonScriptWindows() {
         let userData = localStorage.getItem("user");
         if (userData === null) {
             return;
         }
         let userObject: UserToken = JSON.parse(userData);
-        let response = await axios.get(ServerEndpoints.DOWNLOAD_FILE_SCRIPT, {
+        let response = await axios.get(ServerEndpoints.DOWNLOAD_FILE_SCRIPT + "WINDOWS", {
             headers: {
                 "Authorization": "Bearer " + userObject.accessToken
             },
             responseType: 'arraybuffer'
         })
         FileDownload(response.data, "stats-parser.zip")
+    }
+    static async downloadPythonScriptLinux() {
+        let userData = localStorage.getItem("user");
+        if (userData === null) {
+            return;
+        }
+        let userObject: UserToken = JSON.parse(userData);
+        let response = await axios.get(ServerEndpoints.DOWNLOAD_FILE_SCRIPT + "LINUX", {
+            headers: {
+                "Authorization": "Bearer " + userObject.accessToken
+            },
+            responseType: 'arraybuffer'
+        })
+        FileDownload(response.data, "stats-parser-linux.zip")
     }
 }
 
