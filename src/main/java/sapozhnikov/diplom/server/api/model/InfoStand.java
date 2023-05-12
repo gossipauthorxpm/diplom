@@ -18,6 +18,7 @@ public class InfoStand {
     private Long id;
 
     private String node;
+    private String systemOC;
     private String keyStand;
     private String loginUser;
     private int softInterruptsCount;
@@ -30,8 +31,11 @@ public class InfoStand {
 
     @Override
     public String toString() {
-        return "DataStatus{" +
+        return "InfoStand{" +
                 "id=" + id +
+                ", node='" + node + '\'' +
+                ", keyStand='" + keyStand + '\'' +
+                ", loginUser='" + loginUser + '\'' +
                 ", softInterruptsCount=" + softInterruptsCount +
                 ", activeUserSystem=" + activeUserSystem +
                 ", cpuTemp=" + cpuTemp +
@@ -39,6 +43,7 @@ public class InfoStand {
                 ", cpuPercentUsage=" + cpuPercentUsage +
                 ", virtualMemoryPercentUsage=" + virtualMemoryPercentUsage +
                 ", diskPercentUsage=" + diskPercentUsage +
+                ", systemOC='" + systemOC + '\'' +
                 '}';
     }
 }
