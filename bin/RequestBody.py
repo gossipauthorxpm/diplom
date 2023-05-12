@@ -13,6 +13,7 @@ class RequestBody:
         self.__activeUsersSystemCount = None
         self.__loginUser = loginUser
         self.__node = node
+        self.__systemOC = "WINDOWS"
 
     def setCpuPercentUsage(self, value):
         self.__cpuPercentUsage = value
@@ -55,5 +56,6 @@ class RequestBody:
             "virtualMemoryPercentUsage": self.__virtualMemoryPercentUsage,
             "diskPercentUsage": self.__diskPercentUsage,
             "softInterruptsCount": self.__softInterruptsCount,
-            "activeUserSystem": self.__activeUsersSystemCount
+            "activeUserSystem": self.__activeUsersSystemCount,
+            "systemOC": self.__systemOC
         })

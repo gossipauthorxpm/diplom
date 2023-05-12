@@ -11,5 +11,6 @@ pip install pythonnet
 1. Распакуйте архив по удобному вам пути
 2. В корне откройте cmd 
 3. Выполните команду - python -m venv venv
-4. Выполните команду - python -m pip install pythonnet
-5. Запустите файл start.bat
+4. Выполните команду - python -m pip uninstall pythonnet
+5. Выполните команду - python -m pip install pythonnet
+6. Запустите файл start.bat
