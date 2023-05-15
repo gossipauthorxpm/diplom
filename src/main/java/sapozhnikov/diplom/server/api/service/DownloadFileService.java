@@ -19,10 +19,10 @@ public class DownloadFileService {
 
     public ResponseEntity<FileSystemResource> getPythonScript(String oc) {
         if (oc.equals("LINUX")){
-            FileSystemResource resource = new FileSystemResource("back-diplom/python-script/stats-parser-linux.zip");
+            FileSystemResource resource = new FileSystemResource("python-script/stats-parser-linux.zip");
             return new ResponseEntity<>(resource, HttpStatus.OK);
         }
-        FileSystemResource resource = new FileSystemResource("back-diplom/python-script/stats-parser.zip");
+        FileSystemResource resource = new FileSystemResource("python-script/stats-parser.zip");
         return new ResponseEntity<>(resource, HttpStatus.OK);
     }
 }
