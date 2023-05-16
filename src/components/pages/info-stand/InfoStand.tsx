@@ -3,7 +3,6 @@ import {useEffect, useState} from "react";
 import InfoStandRequests from "../../../api/InfoStandRequests";
 import UTFSymbols from "../../../entity/UTFSymbols";
 import Callbacks from "../../../api/Callbacks";
-import {color, motion} from "framer-motion";
 
 function InfoStand() {
     const [stands, setStands] = useState([])
