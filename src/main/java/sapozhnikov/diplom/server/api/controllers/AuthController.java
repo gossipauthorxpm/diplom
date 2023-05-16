@@ -1,6 +1,8 @@
 package sapozhnikov.diplom.server.api.controllers;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -16,6 +18,7 @@ import sapozhnikov.diplom.server.config.jwt_util.JwtUtil;
 @RestController
 @RequestMapping("/api/login/")
 @RequiredArgsConstructor
+@Slf4j
 public class AuthController {
 
     private final JwtUtil jwtUtil;
@@ -29,12 +32,13 @@ public class AuthController {
 
         try {
             authenticationManager.authenticate(authenticationToken);
+            log.info("Пользователь с логином {} прошел аутентификацию", request.getLogin());
         } catch (BadCredentialsException e) {
             throw new BadCredentialsException("Bad credentials");
         }
 
         String jwt = jwtUtil.generateToken(request.getLogin());
-        System.out.println(jwt);
+//        System.out.println(jwt);
         return new AuthAnswer(jwt, request.getLogin());
     }
 
